@@ -9,7 +9,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 cmp.setup {
-  enabled = true,
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),

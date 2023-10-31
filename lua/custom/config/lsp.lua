@@ -11,15 +11,16 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap('<leader>lr', vim.lsp.buf.rename, '[L]sp [R]ename')
-  nmap('<leader>la', vim.lsp.buf.code_action, '[L]sp [A]ctions')
+  print 'hello'
+  nmap('<leader>lr', vim.lsp.buf.rename, 'Lsp Rename')
+  nmap('<leader>la', vim.lsp.buf.code_action, 'Lsp Actions')
 
   nmap('gd', require('telescope.builtin').lsp_definitions, 'Goto Definition')
   nmap('gr', require('telescope.builtin').lsp_references, 'Goto References')
   nmap('gI', require('telescope.builtin').lsp_implementations, 'Goto Implementation')
   nmap('<leader>lD', require('telescope.builtin').lsp_type_definitions, 'Definition')
-  nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Symbols')
-  nmap('<leader>lS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Symbols')
+  nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Symbols Document')
+  nmap('<leader>lS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Symbols Sorkspace')
   nmap('<leader>ld', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Diagnostics')
 
   -- See `:help K` for why this keymap
@@ -69,12 +70,18 @@ local servers = {
         globals = { 'vim' },
       },
     },
-
-    sumneko_lua = {
-      Lua = {
-        diagnostics = {
-          globals = { 'vim' },
-        },
+  },
+  tsserver = {},
+  svelte = {},
+  html = {},
+  tailwindcss = {},
+  pyright = {},
+  cssls = {},
+  emmet_ls = {},
+  rust_analyzer = {
+    ['rust-analyzer'] = {
+      check = {
+        command = 'clippy',
       },
     },
   },
