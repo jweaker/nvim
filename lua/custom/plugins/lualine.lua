@@ -30,7 +30,7 @@ return {
         lualine_y = { 'progress' },
         lualine_z = { 'location' },
       },
-      ignore_focus = { 'spectre', 'neo-tree', 'Trouble' },
+      ignore_focus = { 'spectre', 'Trouble', 'toggleterm' },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
@@ -42,7 +42,7 @@ return {
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      extensions = { 'neo-tree', 'fugitive', 'fzf', 'trouble', 'nvim-dap-ui' },
+      extensions = { 'neo-tree', 'nvim-tree', 'fugitive', 'fzf', 'trouble', 'nvim-dap-ui' },
     }
   end,
 }
