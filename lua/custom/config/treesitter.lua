@@ -75,12 +75,18 @@ vim.defer_fn(function()
       swap = {
         enable = true,
         swap_next = {
-          ['<leader>aa'] = '@parameter.inner',
-          ['<leader>am'] = '@function.inner',
+          ['<leader>af'] = '@call.outer',
+          ['<leader>am'] = '@function.outer',
+          ['<leader>ac'] = '@class.outer',
+          ['<leader>ai'] = '@conditional.outer',
+          ['<leader>al'] = '@loop.outer',
         },
         swap_previous = {
-          ['<leader>Aa'] = '@parameter.inner',
-          ['<leader>Am'] = '@function.inner',
+          ['<leader>aF'] = '@call.outer',
+          ['<leader>aM'] = '@function.outer',
+          ['<leader>aC'] = '@class.outer',
+          ['<leader>aI'] = '@conditional.outer',
+          ['<leader>aL'] = '@loop.outer',
         },
       },
     },
