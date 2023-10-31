@@ -4,7 +4,8 @@
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim',
+      'bash' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -16,8 +17,7 @@ vim.defer_fn(function()
       keymaps = {
         init_selection = '<c-space>',
         node_incremental = '<c-space>',
-        scope_incremental = '<c-s>',
-        node_decremental = '<M-space>',
+        node_decremental = '<S-space>',
       },
     },
     textobjects = {
@@ -28,41 +28,78 @@ vim.defer_fn(function()
           -- You can use the capture groups defined in textobjects.scm
           ['aa'] = '@parameter.outer',
           ['ia'] = '@parameter.inner',
-          ['af'] = '@function.outer',
-          ['if'] = '@function.inner',
+          ['af'] = '@call.outer',
+          ['if'] = '@call.inner',
+          ['am'] = '@function.outer',
+          ['im'] = '@function.inner',
           ['ac'] = '@class.outer',
           ['ic'] = '@class.inner',
+          ['ai'] = '@conditional.outer',
+          ['ii'] = '@conditional.inner',
+          ['al'] = '@loop.outer',
+          ['il'] = '@loop.inner',
         },
       },
       move = {
         enable = true,
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
+          [']f'] = '@call.outer',
           [']m'] = '@function.outer',
-          [']]'] = '@class.outer',
+          [']c'] = '@class.outer',
+          [']i'] = '@conditional.outer',
+          [']l'] = '@loop.outer',
         },
         goto_next_end = {
+          [']F'] = '@call.outer',
           [']M'] = '@function.outer',
-          [']['] = '@class.outer',
+          [']C'] = '@class.outer',
+          [']I'] = '@conditional.outer',
+          [']L'] = '@loop.outer',
         },
         goto_previous_start = {
+          ['[f'] = '@call.outer',
           ['[m'] = '@function.outer',
-          ['[['] = '@class.outer',
+          ['[c'] = '@class.outer',
+          ['[i'] = '@conditional.outer',
+          ['[l'] = '@loop.outer',
         },
         goto_previous_end = {
+          ['[F'] = '@call.outer',
           ['[M'] = '@function.outer',
-          ['[]'] = '@class.outer',
+          ['[C'] = '@class.outer',
+          ['[I'] = '@conditional.outer',
+          ['[L'] = '@loop.outer',
         },
       },
       swap = {
         enable = true,
         swap_next = {
-          ['<leader>a'] = '@parameter.inner',
+          ['<leader>aa'] = '@parameter.inner',
+          ['<leader>am'] = '@function.inner',
         },
         swap_previous = {
-          ['<leader>A'] = '@parameter.inner',
+          ['<leader>Aa'] = '@parameter.inner',
+          ['<leader>Am'] = '@function.inner',
         },
       },
     },
   }
+
+  local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
+
+  -- Repeat movement with ; and ,
+  -- ensure ; goes forward and , goes backward regardless of the last direction
+  vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
+  vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
+
+  -- vim way: ; goes to the direction you were moving.
+  -- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+  -- vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+
+  -- Optionally, make builtin f, F, t, T also repeatable with ; and ,
+  vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
+  vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
+  vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
+  vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
 end, 0)
