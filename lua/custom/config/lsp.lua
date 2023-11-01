@@ -77,7 +77,8 @@ local servers = {
   pyright = {},
   cssls = {},
   emmet_ls = {},
-
+  clangd = {},
+  gopls = {},
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

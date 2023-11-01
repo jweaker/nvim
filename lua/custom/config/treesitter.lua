@@ -7,8 +7,12 @@ vim.defer_fn(function()
     ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim',
       'bash' },
 
+    context_commentstring = {
+      enable = true,
+    },
+
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-    auto_install = false,
+    auto_install = true,
 
     highlight = { enable = true },
     indent = { enable = true },
@@ -16,8 +20,8 @@ vim.defer_fn(function()
       enable = true,
       keymaps = {
         init_selection = '<c-space>',
-        node_incremental = '<c-space>',
-        node_decremental = '<S-space>',
+        node_incremental = '<C-space>',
+        node_decremental = '<C-S-space>',
       },
     },
     textobjects = {
@@ -92,20 +96,21 @@ vim.defer_fn(function()
     },
   }
 
-  local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
+  require('ts_context_commentstring').setup()
+  local ts_repeat_move = require 'nvim-treesitter.textobjects.repeatable_move'
 
   -- Repeat movement with ; and ,
   -- ensure ; goes forward and , goes backward regardless of the last direction
-  vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
-  vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
+  vim.keymap.set({ 'n', 'x', 'o' }, ';', ts_repeat_move.repeat_last_move_next)
+  vim.keymap.set({ 'n', 'x', 'o' }, ',', ts_repeat_move.repeat_last_move_previous)
 
   -- vim way: ; goes to the direction you were moving.
   -- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
   -- vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
 
   -- Optionally, make builtin f, F, t, T also repeatable with ; and ,
-  vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
-  vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
-  vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
-  vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
+  vim.keymap.set({ 'n', 'x', 'o' }, 'f', ts_repeat_move.builtin_f)
+  vim.keymap.set({ 'n', 'x', 'o' }, 'F', ts_repeat_move.builtin_F)
+  vim.keymap.set({ 'n', 'x', 'o' }, 't', ts_repeat_move.builtin_t)
+  vim.keymap.set({ 'n', 'x', 'o' }, 'T', ts_repeat_move.builtin_T)
 end, 0)
