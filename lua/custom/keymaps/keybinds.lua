@@ -9,10 +9,6 @@ vim.keymap.set('n', '<leader>h', "<cmd>lua require('harpoon.ui').toggle_quick_me
 vim.keymap.set('n', '<leader>m', "<cmd>lua require('harpoon.mark').add_file()<cr>", { desc = 'Mark file with harpoon' })
 vim.keymap.set('n', '<leader>lt', '<cmd>Trouble document_diagnostics<CR>', { desc = 'Trouble document' })
 vim.keymap.set('n', '<leader>lT', '<cmd>Trouble workspace_diagnostics<CR>', { desc = 'Trouble workspace' })
-vim.keymap.set('n', '<leader>th', '<cmd>ToggleTerm direction=horizontal<CR>', { desc = 'Horizontal' })
-vim.keymap.set('n', '<leader>tv', '<cmd>ToggleTerm direction=vertical<CR>', { desc = 'Vertical' })
-vim.keymap.set('n', '<leader>tf', '<cmd>ToggleTerm direction=float<CR>', { desc = 'Float' })
-vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm direction=tab<CR>', { desc = 'Tab' })
 
 vim.keymap.set('n', '<leader>pc', "<cmd>lua require('persistence').load()<cr>",
 	{ desc = 'Restore last session for current dir' })

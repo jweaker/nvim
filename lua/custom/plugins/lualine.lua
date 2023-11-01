@@ -5,6 +5,7 @@ return {
   config = function()
     require('lualine').setup {
       options = {
+        disabled_filetypes = { 'spectre_panel' },
         icons_enabled = true,
         theme = 'auto',
         component_separators = { left = '', right = '' },
@@ -41,7 +42,7 @@ return {
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      extensions = { 'neo-tree', 'nvim-tree', 'fugitive', 'fzf', 'trouble', 'nvim-dap-ui' },
+      extensions = { 'toggleterm', 'nvim-tree', 'fugitive', 'fzf', 'trouble', 'nvim-dap-ui', 'mason' },
     }
   end,
 }
