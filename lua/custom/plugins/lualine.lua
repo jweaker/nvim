@@ -30,7 +30,6 @@ return {
         lualine_y = { 'progress' },
         lualine_z = { 'location' },
       },
-      ignore_focus = { 'spectre', 'Trouble', 'toggleterm' },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
