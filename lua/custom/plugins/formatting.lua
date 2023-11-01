@@ -22,7 +22,9 @@ return {
         html = { { 'prettierd', 'prettier' } },
         json = { { 'prettierd', 'prettier' } },
         markdown = { { 'prettierd', 'prettier' } },
-        yaml = { { 'prettierd', 'prettier' } },
+        zsh = { "beautysh" },
+        bash = { "beautysh" },
+        shell = { "beautysh" },
       },
     }
   end,

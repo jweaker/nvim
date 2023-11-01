@@ -9,15 +9,11 @@ return {
       javascript = { 'eslint_d' },
       javascriptreact = { 'eslint_d' },
       bash = { 'shellcheck' },
-      zsh = { 'shellcheck' },
-      shell = { 'shellcheck' },
       typescript = { 'eslint_d' },
       typescriptreact = { 'eslint_d' },
       svelte = { 'eslint_d' },
       python = { 'pylint' },
       html = { 'tidy' },
-      c = { 'clazy' },
-      cpp = { 'cppcheck' },
       json = { 'jsonlint' },
     }
 
