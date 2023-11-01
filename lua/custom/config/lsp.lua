@@ -1,6 +1,6 @@
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
+On_attach = function(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -11,7 +11,6 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  print 'hello'
   nmap('<leader>lr', vim.lsp.buf.rename, 'Lsp Rename')
   nmap('<leader>la', vim.lsp.buf.code_action, 'Lsp Actions')
 
@@ -78,13 +77,7 @@ local servers = {
   pyright = {},
   cssls = {},
   emmet_ls = {},
-  rust_analyzer = {
-    ['rust-analyzer'] = {
-      check = {
-        command = 'clippy',
-      },
-    },
-  },
+
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -100,7 +93,7 @@ mason_lspconfig.setup_handlers {
   function(server_name)
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
-      on_attach = on_attach,
+      on_attach = On_attach,
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
     }

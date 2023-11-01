@@ -23,7 +23,6 @@ return {
         json = { { 'prettierd', 'prettier' } },
         markdown = { { 'prettierd', 'prettier' } },
         yaml = { { 'prettierd', 'prettier' } },
-        rust = { 'clippy' },
       },
     }
   end,

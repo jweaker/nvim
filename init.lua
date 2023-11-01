@@ -32,3 +32,19 @@ require 'custom.keymaps.remaps'
 require 'custom.keymaps.whichkey'
 require 'custom.keymaps.telescope'
 require 'custom.keymaps.keybinds'
+
+vim.g.firenvim_config = {
+  globalsettings = { alt = "all" },
+  localSettings = {
+    [".*"] = {
+      cmdline  = "neovim",
+      content  = "text",
+      selector = 'textarea',
+      priority = 0,
+      takeover = "never",
+    },
+  }
+}
+if vim.g.started_by_firenvim == true then
+  vim.o.guifont = "JetBrainsMono Nerd Font"
+end
