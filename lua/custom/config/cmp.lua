@@ -11,7 +11,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 cmp.setup {
   window = {
     completion = cmp.config.window.bordered(),
-    documentatior = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   formatting = {
     format = require('lspkind').cmp_format {
