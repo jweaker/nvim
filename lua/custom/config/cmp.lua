@@ -11,11 +11,11 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 cmp.setup {
   window = {
     completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    documentatior = cmp.config.window.bordered(),
   },
   formatting = {
     format = require('lspkind').cmp_format {
-      mode = 'symbol',
+      mode = 'symbol_text',
       maxwidth = 50,
       ellipsis_char = '...',
       symbol_map = { Codeium = '' },
@@ -29,6 +29,8 @@ cmp.setup {
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-j>'] = cmp.mapping.select_next_item(),
+    ['<C-k>'] = cmp.mapping.select_prev_item(),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete {},
