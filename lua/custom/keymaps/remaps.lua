@@ -37,6 +37,8 @@ vim.keymap.set('o', '<M-x>', '"_x')
 
 vim.keymap.set('i', '<C-BS>', '<C-W>')
 vim.keymap.set('t', '<C-BS>', '<C-W>')
+vim.keymap.set('i', '<M-BS>', '<C-W>')
+vim.keymap.set('t', '<M-BS>', '<C-W>')
 
 local term = require 'toggleterm'
 
