@@ -38,7 +38,11 @@ return {
             ['<C-BS>'] = function()
               local key = vim.api.nvim_replace_termcodes("<C-W>", true, false, true)
               vim.api.nvim_feedkeys(key, "i", false)
-            end
+            end,
+            ['<M-BS>'] = function()
+              local key = vim.api.nvim_replace_termcodes("<C-W>", true, false, true)
+              vim.api.nvim_feedkeys(key, "i", false)
+            end,
           },
         },
       },

@@ -12,6 +12,22 @@ vim.keymap.set('i', '<C-BS>', function()
 	local key = vim.api.nvim_replace_termcodes('<C-W>', true, false, true)
 	vim.api.nvim_feedkeys(key, 'i', false)
 end)
+
+vim.keymap.set('i', '<M-BS>', function()
+	local key = vim.api.nvim_replace_termcodes('<C-W>', true, false, true)
+	vim.api.nvim_feedkeys(key, 'i', false)
+end)
+
+vim.keymap.set('t', '<C-BS>', function()
+	local key = vim.api.nvim_replace_termcodes('<C-W>', true, false, true)
+	vim.api.nvim_feedkeys(key, 't', false)
+end)
+
+vim.keymap.set('t', '<M-BS>', function()
+	local key = vim.api.nvim_replace_termcodes('<C-W>', true, false, true)
+	vim.api.nvim_feedkeys(key, 't', false)
+end)
+
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>')
 vim.keymap.set('n', '<Esc>', '<cmd>noh <CR>')
 
@@ -35,10 +51,6 @@ vim.keymap.set('n', '<M-x>', '"_x')
 vim.keymap.set('v', '<M-x>', '"_x')
 vim.keymap.set('o', '<M-x>', '"_x')
 
-vim.keymap.set('i', '<C-BS>', '<C-W>')
-vim.keymap.set('t', '<C-BS>', '<C-W>')
-vim.keymap.set('i', '<M-BS>', '<C-W>')
-vim.keymap.set('t', '<M-BS>', '<C-W>')
 
 local term = require 'toggleterm'
 

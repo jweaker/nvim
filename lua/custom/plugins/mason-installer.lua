@@ -6,6 +6,7 @@ return {
       ensure_installed = {
         'pretterd',
         'eslint_d',
+        'eslint',
         'pylint',
         'jsonlint',
         'shellcheck',
