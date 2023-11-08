@@ -15,6 +15,7 @@ return {
         -- 'cpptools',
         'clang-format',
         'isort',
+        'beautysh',
       },
       auto_update = true,
       run_on_start = true,

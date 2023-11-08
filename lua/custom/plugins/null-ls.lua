@@ -29,9 +29,11 @@ return {
 
         -- shell
         diagnostics.shellcheck,
+        diagnostics.zsh,
+        formatting.beautysh,
 
         -- c/cpp
-        -- diagnostics.cppcheck,
+        diagnostics.cppcheck,
         formatting.clang_format,
 
         -- go
