@@ -5,14 +5,13 @@ return {
   config = function()
     require('lualine').setup {
       options = {
-        disabled_filetypes = { 'spectre_panel' },
         icons_enabled = true,
         theme = 'auto',
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
-          statusline = {},
-          winbar = {},
+          statusline = { 'spectre_panel' },
+          winbar = { 'spectre_panel' },
         },
         ignore_focus = {},
         always_divide_middle = true,

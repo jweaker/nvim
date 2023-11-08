@@ -1,6 +1,6 @@
 return {
-  "windwp/nvim-ts-autotag",
-  event = "InsertEnter",
-  filetypes = { "html", "xml", "typescript", "typescriptreact", "javascript", "javascriptreact" },
+  'windwp/nvim-ts-autotag',
+  event = 'InsertEnter',
+  filetypes = { 'html', 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
   config = true,
 }
