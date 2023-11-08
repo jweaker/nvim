@@ -8,25 +8,8 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-vim.keymap.set('i', '<C-BS>', function()
-	local key = vim.api.nvim_replace_termcodes('<C-W>', true, false, true)
-	vim.api.nvim_feedkeys(key, 'i', false)
-end)
-
-vim.keymap.set('i', '<M-BS>', function()
-	local key = vim.api.nvim_replace_termcodes('<C-W>', true, false, true)
-	vim.api.nvim_feedkeys(key, 'i', false)
-end)
-
-vim.keymap.set('t', '<C-BS>', function()
-	local key = vim.api.nvim_replace_termcodes('<C-W>', true, false, true)
-	vim.api.nvim_feedkeys(key, 't', false)
-end)
-
-vim.keymap.set('t', '<M-BS>', function()
-	local key = vim.api.nvim_replace_termcodes('<C-W>', true, false, true)
-	vim.api.nvim_feedkeys(key, 't', false)
-end)
+vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', { noremap = true })
+vim.api.nvim_set_keymap('t', '<C-H>', '<C-W>', { noremap = true })
 
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>')
 vim.keymap.set('n', '<Esc>', '<cmd>noh <CR>')
@@ -51,24 +34,23 @@ vim.keymap.set('n', '<M-x>', '"_x')
 vim.keymap.set('v', '<M-x>', '"_x')
 vim.keymap.set('o', '<M-x>', '"_x')
 
-
 local term = require 'toggleterm'
 
 local opts = { buffer = 0 }
-local function horizontal()
-	term.toggle(1, nil, nil, 'horizontal')
+local function first()
+  term.toggle(1, nil, nil, 'tab')
 end
 
-local function vertical()
-	term.toggle(2, 50, nil, 'vertical')
+local function second()
+  term.toggle(2, nil, nil, 'tab')
 end
 
-local function float()
-	term.toggle(3, nil, nil, 'float')
+local function third()
+  term.toggle(3, nil, nil, 'tab')
 end
 
-local function tab()
-	term.toggle(4, nil, nil, 'tab')
+local function forth()
+  term.toggle(4, nil, nil, 'tab')
 end
 
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
@@ -83,19 +65,19 @@ vim.keymap.set('t', '<C-M-h>', [[<Cmd>wincmd <<CR>]])
 vim.keymap.set('t', '<C-M-k>', [[<Cmd>wincmd -<CR>]])
 vim.keymap.set('t', '<C-M-j>', [[<Cmd>wincmd +<CR>]])
 
-vim.keymap.set('t', '<M-1>', horizontal, { desc = 'Horizontal' })
-vim.keymap.set('t', '<M-2>', vertical, { desc = 'Vertical' })
-vim.keymap.set('t', '<M-3>', float, { desc = 'Float' })
-vim.keymap.set('t', '<M-4>', tab, { desc = 'Tab' })
+vim.keymap.set('t', '<M-1>', first, { desc = 'Horizontal' })
+vim.keymap.set('t', '<M-2>', second, { desc = 'Vertical' })
+vim.keymap.set('t', '<M-3>', third, { desc = 'Float' })
+vim.keymap.set('t', '<M-4>', forth, { desc = 'Tab' })
 
 vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
 
 ----
 
-vim.keymap.set('n', '<M-1>', horizontal, { desc = 'Horizontal' })
-vim.keymap.set('n', '<M-2>', vertical, { desc = 'Vertical' })
-vim.keymap.set('n', '<M-3>', float, { desc = 'Float' })
-vim.keymap.set('n', '<M-4>', tab, { desc = 'Tab' })
+vim.keymap.set('n', '<M-1>', first, { desc = 'Horizontal' })
+vim.keymap.set('n', '<M-2>', second, { desc = 'Vertical' })
+vim.keymap.set('n', '<M-3>', third, { desc = 'Float' })
+vim.keymap.set('n', '<M-4>', forth, { desc = 'Tab' })
 
 vim.keymap.set('n', '<C-h>', [[<Cmd>wincmd h<CR>]])
 vim.keymap.set('n', '<C-j>', [[<Cmd>wincmd j<CR>]])
