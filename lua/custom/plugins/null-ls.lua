@@ -18,7 +18,9 @@ return {
 
         -- lua
         formatting.stylua,
-        diagnostics.luacheck,
+        diagnostics.luacheck.with {
+          args = { '--globals', 'vim', '--formatter', 'plain', '--codes', '--ranges', '--filename', '$FILENAME', '-' },
+        },
 
         -- python (i dont use it)
         formatting.black,
@@ -34,7 +36,6 @@ return {
 
         -- go
         formatting.gofmt,
-        diagnostics.gospel,
 
         -- general
         code_actions.gitsigns,

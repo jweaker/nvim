@@ -12,7 +12,6 @@ return {
         'stylua',
         'black',
         'luacheck',
-        'gospel',
         -- 'cpptools',
         'clang-format',
         'isort',

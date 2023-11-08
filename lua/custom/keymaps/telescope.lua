@@ -1,4 +1,4 @@
-local success, tel = pcall(require, "telescope.builtin")
+local success, tel = pcall(require, 'telescope.builtin')
 
 if success then
   -- See `:help telescope.builtin`
@@ -11,5 +11,5 @@ if success then
   vim.keymap.set('n', '<leader>st', tel.live_grep, { desc = 'Find Text' })
   vim.keymap.set('n', '<leader>sr', tel.resume, { desc = 'Resume' })
 else
-  print("Error: telescope not installed")
+  print 'Error: telescope not installed'
 end

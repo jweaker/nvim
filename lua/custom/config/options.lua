@@ -1,6 +1,6 @@
 if vim.g.neovide then
-	vim.o.guifont = "JetBrainsMono Nerd Font:h13"
-	vim.g.neovide_hide_mouse_when_typing = true
+  vim.o.guifont = 'JetBrainsMono Nerd Font:h13'
+  vim.g.neovide_hide_mouse_when_typing = true
 end
 
 vim.opt.showmode = false
@@ -11,11 +11,11 @@ vim.opt.wrap = false
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-	group = highlight_group,
-	pattern = '*',
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
 })
 
 vim.o.hlsearch = false

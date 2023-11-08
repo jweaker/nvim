@@ -36,12 +36,12 @@ return {
             ['<C-u>'] = false,
             ['<C-d>'] = false,
             ['<C-BS>'] = function()
-              local key = vim.api.nvim_replace_termcodes("<C-W>", true, false, true)
-              vim.api.nvim_feedkeys(key, "i", false)
+              local key = vim.api.nvim_replace_termcodes('<C-W>', true, false, true)
+              vim.api.nvim_feedkeys(key, 'i', false)
             end,
             ['<M-BS>'] = function()
-              local key = vim.api.nvim_replace_termcodes("<C-W>", true, false, true)
-              vim.api.nvim_feedkeys(key, "i", false)
+              local key = vim.api.nvim_replace_termcodes('<C-W>', true, false, true)
+              vim.api.nvim_feedkeys(key, 'i', false)
             end,
           },
         },
@@ -50,5 +50,5 @@ return {
 
     -- Enable telescope fzf native, if installed
     pcall(require('telescope').load_extension, 'fzf')
-  end
+  end,
 }
