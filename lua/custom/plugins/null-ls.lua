@@ -11,9 +11,7 @@ return {
     return {
       sources = {
         -- js
-        diagnostics.eslint_d,
         diagnostics.jsonlint,
-        code_actions.eslint_d,
         formatting.prettierd,
 
         -- lua

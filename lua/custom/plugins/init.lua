@@ -2,6 +2,7 @@ return {
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  'aznhe21/actions-preview.nvim',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',

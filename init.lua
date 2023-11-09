@@ -20,7 +20,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({ { import = 'custom.plugins' } }, {})
-require('neodev').setup()
+require('neodev').setup {
+  library = { plugins = { 'nvim-dap-ui' }, types = true },
+}
 
 require 'custom.config.treesitter'
 require 'custom.config.lsp'

@@ -1,6 +1,6 @@
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
-On_attach = function(_, bufnr)
+Lsp_on_attach = function(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -11,16 +11,18 @@ On_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap('<leader>lr', vim.lsp.buf.rename, 'Lsp Rename')
-  nmap('<leader>la', vim.lsp.buf.code_action, 'Lsp Actions')
+  local tel = require 'telescope.builtin'
 
-  nmap('gd', require('telescope.builtin').lsp_definitions, 'Goto Definition')
-  nmap('gr', require('telescope.builtin').lsp_references, 'Goto References')
-  nmap('gI', require('telescope.builtin').lsp_implementations, 'Goto Implementation')
-  nmap('<leader>lD', require('telescope.builtin').lsp_type_definitions, 'Definition')
-  nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Symbols Document')
-  nmap('<leader>lS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Symbols Sorkspace')
-  nmap('<leader>ld', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Diagnostics')
+  nmap('<leader>lr', vim.lsp.buf.rename, 'Lsp Rename')
+  nmap('<leader>la', require('actions-preview').code_actions, 'Lsp Actions')
+
+  nmap('gd', tel.lsp_definitions, 'Goto Definition')
+  nmap('gr', tel.lsp_references, 'Goto References')
+  nmap('gI', tel.lsp_implementations, 'Goto Implementation')
+  nmap('<leader>lD', tel.lsp_type_definitions, 'Definition')
+  nmap('<leader>ls', tel.lsp_document_symbols, 'Symbols Document')
+  nmap('<leader>lS', tel.lsp_dynamic_workspace_symbols, 'Symbols Sorkspace')
+  nmap('<leader>ld', tel.lsp_dynamic_workspace_symbols, 'Diagnostics')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -58,8 +60,13 @@ local servers = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
-      diagnostics = {
-        globals = { 'vim' },
+    },
+  },
+  rust_analyzer = {
+    ['rust-analyzer'] = {
+      -- enable clippy on save
+      checkOnSave = {
+        command = 'clippy',
       },
     },
   },
@@ -70,6 +77,7 @@ local servers = {
   pyright = {},
   cssls = {},
   emmet_ls = {},
+  eslint = {},
   clangd = {},
   gopls = {},
   astro = {},
@@ -88,7 +96,7 @@ mason_lspconfig.setup_handlers {
   function(server_name)
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
-      on_attach = On_attach,
+      on_attach = Lsp_on_attach,
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
     }

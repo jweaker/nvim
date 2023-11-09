@@ -5,14 +5,16 @@ return {
     require('mason-tool-installer').setup {
       ensure_installed = {
         'prettierd',
-        'eslint_d',
+        'eslint-lsp',
         'pylint',
         'jsonlint',
         'shellcheck',
         'stylua',
         'black',
         'luacheck',
-        -- 'cpptools',
+        'cpptools',
+        'codelldb',
+        'rust-analyzer',
         'clang-format',
         'isort',
         'beautysh',
