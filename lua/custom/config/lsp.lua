@@ -72,7 +72,6 @@ local servers = {
   },
   tsserver = {},
   svelte = {},
-  html = {},
   tailwindcss = {},
   pyright = {},
   cssls = {},
@@ -80,6 +79,7 @@ local servers = {
   eslint = {},
   clangd = {},
   gopls = {},
+  html = {},
   astro = {},
   jsonls = {
     json = {
@@ -110,11 +110,22 @@ mason_lspconfig.setup {
 
 mason_lspconfig.setup_handlers {
   function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = Lsp_on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
+    if server_name == 'clangd' then
+      local clangd_capabilities = capabilities
+      clangd_capabilities.offsetEncoding = { 'utf-16' }
+      require('lspconfig')[server_name].setup {
+        capabilities = clangd_capabilities,
+        on_attach = Lsp_on_attach,
+        settings = servers[server_name],
+        filetypes = (servers[server_name] or {}).filetypes,
+      }
+    else
+      require('lspconfig')[server_name].setup {
+        capabilities = capabilities,
+        on_attach = Lsp_on_attach,
+        settings = servers[server_name],
+        filetypes = (servers[server_name] or {}).filetypes,
+      }
+    end
   end,
 }
