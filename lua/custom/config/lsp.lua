@@ -21,8 +21,8 @@ Lsp_on_attach = function(_, bufnr)
   nmap('gI', tel.lsp_implementations, 'Goto Implementation')
   nmap('<leader>lD', tel.lsp_type_definitions, 'Definition')
   nmap('<leader>ls', tel.lsp_document_symbols, 'Symbols Document')
-  nmap('<leader>lS', tel.lsp_dynamic_workspace_symbols, 'Symbols Sorkspace')
-  nmap('<leader>ld', tel.lsp_dynamic_workspace_symbols, 'Diagnostics')
+  nmap('<leader>lS', tel.lsp_dynamic_workspace_symbols, 'Symbols Workspace')
+  nmap('<leader>ld', tel.diagnostics, 'Diagnostics')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
