@@ -77,7 +77,6 @@ local servers = {
   cssls = {},
   emmet_ls = {},
   eslint = {},
-  clangd = {},
   gopls = {},
   html = {},
   astro = {},
@@ -97,6 +96,7 @@ local servers = {
       schemas = require('schemastore').yaml.schemas(),
     },
   },
+  clangd = {},
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
