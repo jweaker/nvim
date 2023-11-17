@@ -100,8 +100,8 @@ vim.defer_fn(function()
 
   -- Repeat movement with ; and ,
   -- ensure ; goes forward and , goes backward regardless of the last direction
-  vim.keymap.set({ 'n', 'x', 'o' }, ';', ts_repeat_move.repeat_last_move_next)
-  vim.keymap.set({ 'n', 'x', 'o' }, ',', ts_repeat_move.repeat_last_move_previous)
+  vim.keymap.set({ 'n', 'x', 'o' }, ';l', ts_repeat_move.repeat_last_move_next, { desc = 'Repeat last move next' })
+  vim.keymap.set({ 'n', 'x', 'o' }, ';h', ts_repeat_move.repeat_last_move_previous, { desc = 'Repeat last move prev' })
 
   -- vim way: ; goes to the direction you were moving.
   -- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)

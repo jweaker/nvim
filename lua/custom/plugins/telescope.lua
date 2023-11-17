@@ -30,6 +30,7 @@ return {
             ['<C-k>'] = require('telescope.actions').move_selection_previous,
           },
           i = {
+            [';j'] = require('telescope.actions').close,
             ['<Tab>'] = require('telescope.actions').move_selection_previous,
             ['<S-Tab>'] = require('telescope.actions').move_selection_next,
             ['<C-j>'] = require('telescope.actions').move_selection_next,
