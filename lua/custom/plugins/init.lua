@@ -4,6 +4,7 @@ return {
   'tpope/vim-rhubarb',
   'aznhe21/actions-preview.nvim',
   'b0o/schemastore.nvim',
+
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
   { 'onsails/lspkind.nvim', lazy = false },

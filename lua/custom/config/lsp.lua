@@ -1,6 +1,6 @@
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
-Lsp_on_attach = function(_, bufnr)
+function Lsp_on_attach(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -60,14 +60,6 @@ local servers = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
-    },
-  },
-  rust_analyzer = {
-    ['rust-analyzer'] = {
-      -- enable clippy on save
-      checkOnSave = {
-        command = 'clippy',
-      },
     },
   },
   tsserver = {},
