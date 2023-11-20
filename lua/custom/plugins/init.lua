@@ -50,6 +50,4 @@ return {
     },
     build = ':TSUpdate',
   },
-  require 'kickstart.plugins.autoformat',
-  require 'kickstart.plugins.debug',
 }
