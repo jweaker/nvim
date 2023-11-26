@@ -8,11 +8,6 @@ return {
         enabled = true,
         name = 'crates.nvim',
       },
-      src = {
-        cmp = {
-          enabled = true,
-        },
-      },
     }
   end,
 }

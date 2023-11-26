@@ -6,10 +6,6 @@ vim.defer_fn(function()
     -- Add languages to be installed here that you want installed for treesitter
     ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
 
-    context_commentstring = {
-      enable = true,
-    },
-
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = true,
 
@@ -96,6 +92,7 @@ vim.defer_fn(function()
   }
 
   require('ts_context_commentstring').setup()
+  vim.g.skip_ts_context_commentstring_module = true
   local ts_repeat_move = require 'nvim-treesitter.textobjects.repeatable_move'
 
   -- Repeat movement with ; and ,
