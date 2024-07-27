@@ -10,24 +10,17 @@ return {
     return {
       sources = {
         -- js
-        diagnostics.jsonlint,
-        formatting.prettierd,
+        formatting.prettier,
 
         -- lua
         formatting.stylua,
-        diagnostics.luacheck.with {
-          args = { '--globals', 'vim', '--formatter', 'plain', '--codes', '--ranges', '--filename', '$FILENAME', '-' },
-        },
 
         -- python (i dont use it)
         formatting.black,
         formatting.isort,
-        diagnostics.pylint,
 
         -- shell
-        diagnostics.shellcheck,
         diagnostics.zsh,
-        formatting.beautysh,
 
         -- c/cpp
         diagnostics.cppcheck,

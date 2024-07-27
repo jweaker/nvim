@@ -70,6 +70,7 @@ local servers = {
   emmet_ls = {},
   eslint = {},
   gopls = {},
+  ruff_lsp = {},
   html = {},
   astro = {},
   jsonls = {

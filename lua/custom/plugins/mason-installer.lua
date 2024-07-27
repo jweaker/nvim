@@ -4,7 +4,7 @@ return {
   config = function()
     require('mason-tool-installer').setup {
       ensure_installed = {
-        'prettierd',
+        'prettier',
         'eslint-lsp',
         'pylint',
         'jsonlint',
