@@ -21,5 +21,6 @@ return {
   },
   dependencies = {
     'MunifTanjim/nui.nvim',
+    'echasnovski/mini.icons',
   },
 }

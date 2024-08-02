@@ -1,9 +1,14 @@
 -- document existing key chains
-require('which-key').register {
-  ['<leader>p'] = { name = 'Prev Sessions', _ = 'which_key_ignore' },
-  ['<leader>t'] = { name = 'Terminal', _ = 'which_key_ignore' },
-  ['<leader>l'] = { name = 'Lsp', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = 'Search', _ = 'which_key_ignore' },
-  ['<leader>w'] = { name = 'Workspace', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = 'Debug', _ = 'which_key_ignore' },
+local wk = require 'which-key'
+wk.add {
+  { '<leader>a', name = 'Move', icon = { icon = '󰊕' } },
+  { '<leader>d', name = 'Debug' },
+  { '<leader>e', name = 'Explorer', icon = { icon = '󰙅' } },
+  { '<leader>h', name = 'Harpoon', icon = { icon = '' } },
+  { '<leader>l', name = 'Lsp', icon = { icon = '' } },
+  { '<leader>p', name = 'Prev Sessions' },
+  { '<leader>s', name = 'Search' },
+  { '<leader>t', name = 'Terminal' },
+  { '<leader>u', name = 'Undotree', icon = { icon = '󰕍' } },
+  { '<leader>w', name = 'Workspace', icon = { icon = '' } },
 }

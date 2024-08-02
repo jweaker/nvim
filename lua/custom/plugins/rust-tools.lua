@@ -19,8 +19,8 @@ return {
     end
 
     local function rt_on_attach(idk, bufnr)
-      require('which-key').register {
-        ['<leader>r'] = { name = 'Rust', _ = 'which_key_ignore' },
+      require('which-key').add {
+        { '<leader>r', name = 'Rust', icon = { icon = '' } },
       }
       -- Hover actions
       vim.keymap.set('n', '<leader>rk', rt.hover_actions.hover_actions, { desc = 'Info', buffer = bufnr })
