@@ -15,9 +15,11 @@ return {
         -- lua
         formatting.stylua,
 
-        -- python (i dont use it)
+        -- python
         formatting.black,
         formatting.isort,
+        diagnostics.mypy,
+        diagnostics.ruff,
 
         -- shell
         diagnostics.zsh,
