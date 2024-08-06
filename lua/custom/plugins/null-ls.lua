@@ -19,7 +19,6 @@ return {
         formatting.black,
         formatting.isort,
         diagnostics.mypy,
-        diagnostics.ruff,
 
         -- shell
         diagnostics.zsh,
