@@ -8,7 +8,6 @@ wk.add {
   { '<leader>l', name = 'Lsp', icon = { icon = '' } },
   { '<leader>p', name = 'Prev Sessions' },
   { '<leader>s', name = 'Search' },
-  { '<leader>t', name = 'Terminal' },
   { '<leader>u', name = 'Undotree', icon = { icon = '󰕍' } },
   { '<leader>w', name = 'Workspace', icon = { icon = '' } },
 }

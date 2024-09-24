@@ -62,7 +62,7 @@ local servers = {
       telemetry = { enable = false },
     },
   },
-  tsserver = {},
+  ts_ls = {},
   svelte = {},
   tailwindcss = {},
   pyright = {},

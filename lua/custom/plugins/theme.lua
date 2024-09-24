@@ -1,14 +1,26 @@
+-- return {
+--   -- Theme inspired by Atom
+--   'navarasu/onedark.nvim',
+--   priority = 1000,
+--   config = function()
+--     require('onedark').setup {
+--       transparent = true,
+--       style = 'warmer',
+--     }
+--     require('onedark').load()
+--     vim.cmd.colorscheme 'onedark'
+--   end,
+-- }
 return {
-  -- Theme inspired by Atom
-  'navarasu/onedark.nvim',
+  'catppuccin/nvim',
+  name = 'catppuccin',
   priority = 1000,
   config = function()
-    require('onedark').setup {
-      transparent = true,
-      style = 'warmer',
+    require('catppuccin').setup {
+      flavour = 'mocha',
+      transparent_background = true,
     }
-    require('onedark').load()
-    vim.cmd.colorscheme 'onedark'
+
+    vim.cmd.colorscheme 'catppuccin-mocha'
   end,
 }
--- return { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 }

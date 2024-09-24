@@ -25,10 +25,10 @@ vim.keymap.set({ 'n', 'v', 'o' }, '<M-c>', '"_c')
 vim.keymap.set({ 'n', 'v', 'o' }, '<M-x>', '"_x')
 
 -- window
-vim.keymap.set('n', '<C-h>', [[<Cmd>wincmd h<CR>]])
-vim.keymap.set('n', '<C-j>', [[<Cmd>wincmd j<CR>]])
-vim.keymap.set('n', '<C-k>', [[<Cmd>wincmd k<CR>]])
-vim.keymap.set('n', '<C-l>', [[<Cmd>wincmd l<CR>]])
+vim.keymap.set('n', '<C-l>', '<cmd> TmuxNavigateRight<CR>')
+vim.keymap.set('n', '<C-h>', '<cmd> TmuxNavigateLeft<CR>')
+vim.keymap.set('n', '<C-k>', '<cmd> TmuxNavigateUp<CR>')
+vim.keymap.set('n', '<C-j>', '<cmd> TmuxNavigateDown<CR>')
 
 vim.keymap.set('n', '<C-M-l>', [[<Cmd>wincmd ><CR>]])
 vim.keymap.set('n', '<C-M-h>', [[<Cmd>wincmd <<CR>]])

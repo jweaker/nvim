@@ -1,12 +1,10 @@
 vim.keymap.set('n', '<leader>c', '<cmd>bw<CR>', { desc = 'Close Buffer' })
-vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', { desc = 'Neotree' })
+vim.keymap.set('n', '<leader>e', '<cmd>Ex<CR>', { desc = 'Netrw' })
 vim.keymap.set('n', '<leader>u', function()
   vim.cmd.UndotreeToggle()
   vim.cmd.UndotreeFocus()
 end, { desc = 'UndoTree' })
 
-vim.keymap.set('n', '<leader>h', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", { desc = 'Harpoon Marks' })
-vim.keymap.set('n', '<leader>m', "<cmd>lua require('harpoon.mark').add_file()<cr>", { desc = 'Mark file with harpoon' })
 vim.keymap.set('n', '<leader>lt', '<cmd>Trouble diagnostics<CR>', { desc = 'Trouble document' })
 
 vim.keymap.set('n', '<leader>pc', "<cmd>lua require('persistence').load()<cr>",

@@ -35,7 +35,7 @@ return {
         lualine_a = { 'mode', show_macro_recording },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = { 'filename' },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_x = { 'harpoon2', 'encoding', 'fileformat', 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' },
       },
@@ -50,7 +50,7 @@ return {
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      extensions = { 'toggleterm', 'nvim-tree', 'fugitive', 'fzf', 'trouble', 'nvim-dap-ui', 'mason' },
+      extensions = { 'fugitive', 'fzf', 'trouble', 'nvim-dap-ui', 'mason' },
     }
     vim.api.nvim_create_autocmd('RecordingEnter', {
       callback = function()
