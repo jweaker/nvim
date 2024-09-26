@@ -50,7 +50,7 @@ return {
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      extensions = { 'fugitive', 'fzf', 'trouble', 'nvim-dap-ui', 'mason' },
+      extensions = { 'nvim-tree', 'fugitive', 'fzf', 'trouble', 'nvim-dap-ui', 'mason' },
     }
     vim.api.nvim_create_autocmd('RecordingEnter', {
       callback = function()

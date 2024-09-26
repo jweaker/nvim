@@ -58,6 +58,7 @@ require('mason-lspconfig').setup()
 local servers = {
   lua_ls = {
     Lua = {
+      format = { enable = false },
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
     },
@@ -68,7 +69,6 @@ local servers = {
   pyright = {},
   cssls = {},
   emmet_ls = {},
-  eslint = {},
   gopls = {},
   ruff_lsp = {},
   html = {},
