@@ -84,3 +84,5 @@ vim.o.termguicolors = true
 
 -- vim.opt.spell = true
 -- vim.format_on_save = true
+
+vim.opt.laststatus = 3

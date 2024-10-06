@@ -1,5 +1,4 @@
 -- [[ Basic Keymaps ]]
-
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 -- i think its good enough
