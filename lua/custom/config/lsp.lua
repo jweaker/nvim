@@ -1,6 +1,6 @@
 -- [[ Configure LSP ]]
---  This function gets run when an LSP connects to a particular buffer.
-function Lsp_on_attach(_, bufnr)
+-- This function gets run when an LSP connects to a particular buffer.
+function Lsp_on_attach(client, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -42,37 +42,83 @@ function Lsp_on_attach(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
--- mason-lspconfig requires that these setup functions are called in this order
--- before setting up the servers.
-require('mason').setup()
-require('mason-lspconfig').setup()
+-- Set up capabilities for LSP servers
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
---
---  If you want to override the default filetypes that your language server will attach to you can
---  define the property 'filetypes' to the map in question.
-local servers = {
-  lua_ls = {
+-- Configure individual LSP servers using the modern vim.lsp.config approach
+-- Lua Language Server
+vim.lsp.config('lua_ls', {
+  on_attach = Lsp_on_attach,
+  capabilities = capabilities,
+  settings = {
     Lua = {
       format = { enable = false },
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
     },
   },
-  ts_ls = {},
-  svelte = {},
-  tailwindcss = {},
-  pyright = {},
-  cssls = {},
-  emmet_ls = {},
-  gopls = {},
-  html = {},
-  astro = {},
-  jsonls = {
+})
+
+-- TypeScript Language Server
+vim.lsp.config('ts_ls', {
+  on_attach = Lsp_on_attach,
+  capabilities = capabilities,
+})
+
+-- Svelte Language Server
+vim.lsp.config('svelte', {
+  on_attach = Lsp_on_attach,
+  capabilities = capabilities,
+})
+
+-- Tailwind CSS Language Server
+vim.lsp.config('tailwindcss', {
+  on_attach = Lsp_on_attach,
+  capabilities = capabilities,
+})
+
+-- Python Language Server
+vim.lsp.config('pyright', {
+  on_attach = Lsp_on_attach,
+  capabilities = capabilities,
+})
+
+-- CSS Language Server
+vim.lsp.config('cssls', {
+  on_attach = Lsp_on_attach,
+  capabilities = capabilities,
+})
+
+-- Emmet Language Server
+vim.lsp.config('emmet_ls', {
+  on_attach = Lsp_on_attach,
+  capabilities = capabilities,
+})
+
+-- Go Language Server
+vim.lsp.config('gopls', {
+  on_attach = Lsp_on_attach,
+  capabilities = capabilities,
+})
+
+-- HTML Language Server
+vim.lsp.config('html', {
+  on_attach = Lsp_on_attach,
+  capabilities = capabilities,
+})
+
+-- Astro Language Server
+vim.lsp.config('astro', {
+  on_attach = Lsp_on_attach,
+  capabilities = capabilities,
+})
+
+-- JSON Language Server
+vim.lsp.config('jsonls', {
+  on_attach = Lsp_on_attach,
+  capabilities = capabilities,
+  settings = {
     json = {
       schemas = require('schemastore').json.schemas(),
       validate = { enable = true },
@@ -88,36 +134,50 @@ local servers = {
       schemas = require('schemastore').yaml.schemas(),
     },
   },
-  clangd = {},
+})
+
+-- C/C++ Language Server (clangd needs special offset encoding)
+vim.lsp.config('clangd', {
+  on_attach = Lsp_on_attach,
+  capabilities = vim.tbl_deep_extend('force', capabilities, {
+    offsetEncoding = { 'utf-16' }
+  }),
+})
+
+-- Enable all the configured LSP servers
+local servers = {
+  'lua_ls',
+  'ts_ls',
+  'svelte',
+  'tailwindcss',
+  'pyright',
+  'cssls',
+  'emmet_ls',
+  'gopls',
+  'html',
+  'astro',
+  'jsonls',
+  'clangd',
 }
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+for _, server in ipairs(servers) do
+  vim.lsp.enable(server)
+end
 
-local mason_lspconfig = require 'mason-lspconfig'
-
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-}
-
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    if server_name == 'clangd' then
-      local clangd_capabilities = capabilities
-      clangd_capabilities.offsetEncoding = { 'utf-16' }
-      require('lspconfig')[server_name].setup {
-        capabilities = clangd_capabilities,
-        on_attach = Lsp_on_attach,
-        settings = servers[server_name],
-        filetypes = (servers[server_name] or {}).filetypes,
-      }
-    else
-      require('lspconfig')[server_name].setup {
-        capabilities = capabilities,
-        on_attach = Lsp_on_attach,
-        settings = servers[server_name],
-        filetypes = (servers[server_name] or {}).filetypes,
-      }
-    end
-  end,
-}
+require('mason').setup()
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'lua_ls',
+    'ts_ls',
+    'svelte',
+    'tailwindcss',
+    'pyright',
+    'cssls',
+    'emmet_ls',
+    'gopls',
+    'html',
+    'astro',
+    'jsonls',
+    'clangd',
+  }
+})
