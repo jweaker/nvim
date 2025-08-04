@@ -55,11 +55,13 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
+    per_filetype = {
+      codecompanion = { 'codecompanion' },
+    },
     { name = 'lazydev', group_index = 0 },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'crates' },
-    { name = 'codeium' },
     { name = 'path' },
     { name = 'buffer' },
   },

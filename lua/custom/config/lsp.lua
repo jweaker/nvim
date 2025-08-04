@@ -140,7 +140,7 @@ vim.lsp.config('jsonls', {
 vim.lsp.config('clangd', {
   on_attach = Lsp_on_attach,
   capabilities = vim.tbl_deep_extend('force', capabilities, {
-    offsetEncoding = { 'utf-16' }
+    offsetEncoding = { 'utf-16' },
   }),
 })
 
@@ -163,21 +163,3 @@ local servers = {
 for _, server in ipairs(servers) do
   vim.lsp.enable(server)
 end
-
-require('mason').setup()
-require('mason-lspconfig').setup({
-  ensure_installed = {
-    'lua_ls',
-    'ts_ls',
-    'svelte',
-    'tailwindcss',
-    'pyright',
-    'cssls',
-    'emmet_ls',
-    'gopls',
-    'html',
-    'astro',
-    'jsonls',
-    'clangd',
-  }
-})

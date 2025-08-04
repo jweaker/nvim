@@ -35,8 +35,8 @@ return {
         lualine_a = { 'mode', show_macro_recording },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = { 'filename' },
-        lualine_x = { 'harpoon2', 'encoding', 'fileformat', 'filetype' },
-        lualine_y = { 'progress' },
+        lualine_x = { 'harpoon2', 'filetype' },
+        lualine_y = { 'progress'},
         lualine_z = { 'location' },
       },
       inactive_sections = {
