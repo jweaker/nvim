@@ -4,6 +4,7 @@ if vim.g.neovide then
 end
 
 vim.opt.relativenumber = true
+vim.opt.termbidi = true
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
