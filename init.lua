@@ -20,7 +20,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.opt.termguicolors = true
 
-require('lazy').setup({ { import = 'custom.plugins' } }, {})
+require('lazy').setup({ { import = 'custom.plugins' } }, {git={timeout=300}})
 
 require 'custom.config.treesitter'
 require 'custom.config.lsp'
